@@ -1,0 +1,371 @@
+pl:
+  admin:
+    js:
+      true: True
+      false: False
+      is_present: Is present
+      is_blank: Is blank
+      date: Date ...
+      between_and_: Between ... and ...
+      today: Today
+      yesterday: Yesterday
+      this_week: This week
+      last_week: Last week
+      number: Number ...
+      contains: Contains
+      is_exactly: Is exactly
+      starts_with: Starts with
+      ends_with: Ends with
+      too_many_objects: "Too many objects, use search box above"
+      no_objects: "No objects found"
+    loading: "Loading..."
+    toggle_navigation: Toggle navigation
+    home:
+      name: Strona główna
+    pagination:
+      previous: "&laquo; Poprzednie"
+      next: "Następne &raquo;"
+      truncate: "…"
+    misc:
+      search: "Szukaj"
+      filter: "Filtruj"
+      refresh: "Odśwież"
+      show_all: "Pokaż wszystkie"
+      add_filter: "Dodaj filtr..."
+      bulk_menu_title: "Wybrane pozycje..."
+      remove: "Usuń"
+      add_new: "Dodaj"
+      chosen: "Wybrano %{name}"
+      chose_all: "Wybierz wszystkie"
+      clear_all: "Wyczyść wszystko"
+      up: "Góra"
+      down: "Dół"
+      navigation: "Nawigacja"
+      navigation_static_label: "Links"
+      log_out: "Wyloguj"
+      ago: "temu"
+      more: "Plus %{count} more %{models_name}"
+    flash:
+      successful: "%{name} pomyślnie %{action}"
+      error: "%{name} %{action} bez powodzenia"
+      noaction: "Żadne akcje nie zostały przeprowadzone"
+      model_not_found: "Model '%{model}' nie został znaleziony"
+      object_not_found: "%{model} z ID '%{id}' nie został znaleziony"
+    table_headers:
+      model_name: "Nazwa"
+      last_used: "Ostatnio"
+      records: "Rekordów"
+      username: "Użytkownik"
+      changes: "Zmiany"
+      created_at: "Data/Czas"
+      item: "Pozycja"
+      message: "Wiadomość"
+      last_created: Ostatni rekord utworzono
+    actions:
+      dashboard:
+        title: "Strona administracyjna"
+        menu: "Kokpit"
+        breadcrumb: "Kokpit"
+      index:
+        title: "Wyświetl %{model_label_plural}"
+        menu: "Wyświetl"
+        breadcrumb: "%{model_label_plural}"
+      show:
+        title: "Szczegóły dla %{model_label} '%{object_label}'"
+        menu: "Pokaż"
+        breadcrumb: "%{object_label}"
+      show_in_app:
+        menu: "Pokaż na żywo"
+      new:
+        title: "Dodaj %{model_label}"
+        menu: "Dodaj"
+        breadcrumb: "Dodaj"
+        link: "Dodaj %{model_label}"
+        done: "utworzono"
+      edit:
+        title: "Edytuj %{model_label} '%{object_label}'"
+        menu: "Edytuj"
+        breadcrumb: "Edytuj"
+        link: "Edytuj ten %{model_label}"
+        done: "zaktualizowano"
+      delete:
+        title: "Usuń %{model_label} '%{object_label}'"
+        menu: "Usuń"
+        breadcrumb: "Usuń"
+        link: "Usuń '%{object_label}'"
+        more: "Plus %{count} more %{models_name}"
+        done: "usunięto"
+      bulk_delete:
+        title: "Usuń %{model_label_plural}"
+        menu: "Usuń wiele"
+        breadcrumb: "Usuń wiele"
+        bulk_link: "Usuń zaznaczone %{model_label_plural}"
+      export:
+        title: "Eksportuj %{model_label}"
+        menu: "Eksportuj"
+        breadcrumb: "Eksportuj"
+        link: "Eksportuj %{model_label_plural}"
+        bulk_link: "Esportuj zaznaczone %{model_label_plural}"
+        done: "wyeksportowano"
+      history_index:
+        title: "Historia dla %{model_label_plural}"
+        menu: "Historia"
+        breadcrumb: "Historia"
+      history_show:
+        title: "Historia dla %{model_label} '%{object_label}'"
+        menu: "Historia"
+        breadcrumb: "Historia"
+    form:
+      cancel: "Anuluj"
+      basic_info: "Podstawowe informacje"
+      required: "Wymagane"
+      optional: "Opcjonalne"
+      one_char: "litera"
+      char_length_up_to: "długość do"
+      char_length_of: "długość"
+      save: "Zapisz"
+      save_and_add_another: "Zapisz i dodaj kolejne"
+      save_and_edit: "Zapisz i edytuj"
+      all_of_the_following_related_items_will_be_deleted: "? Następujące powiązane pozycje mogą zostać usunięte lub osierocone:"
+      are_you_sure_you_want_to_delete_the_object: "Jesteś pewien że chcesz usunąć ten %{model_name}"
+      confirmation: "Tak, jestem pewien"
+      delete_confirmation: "Usuń potwierdzenie"
+      bulk_delete: "Następujące obiekty zostaną usunięte, co może usunąć lub osierocić ich powiązane relacje:"
+      new_model: "%{name} (tworzone)"
+    export:      
+      confirmation: "Eksportuj do %{name}"
+      select: "Zaznacz pola do eksportu"
+      select_all_fields: "Select All Fields"
+      fields_from: "Pola z %{name}"
+      fields_from_associated: "Pola z asocjacji %{name}"
+      display: "Wyświetl %{name}: %{type}"
+      options_for: "Opcje dla %{name}"
+      empty_value_for_associated_objects: "<puste>"
+      click_to_reverse_selection: 'Kliknij by odwrócić zaznaczenie'
+      csv:
+        header_for_root_methods: "%{name}" # 'model' is available
+        header_for_association_methods: "%{name} [%{association}]"
+        encoding_to: "Koduj do"
+        encoding_to_help: "Wybierz docelowe kodowanie. Zostaw puste by skorzystać by zostawić aktualne kodowanie nietknięte: (%{name})"
+        skip_header: "Brak nagłówka"
+        skip_header_help: "Nie dodawaj nagłówka (brak opisu pól)"
+        default_col_sep: ","
+        col_sep: "Separator kolumny"
+        col_sep_help: "Zostw puste dla domyślnej wartości ('%{value}')" # value is default_col_sep
+  attributes:
+    host: Adres serwera
+    name: Nazwa
+    parent_email: Email rodzica
+    created_at: "Utworzono"
+    updated_at: "Nadpisano"
+    house_plan: Projekt domu
+    email: E-mail
+    business_name: Nazwa organizacji
+    tax_number: Numer NIP
+    full_name: Imię i nazwisko
+    roles: Role
+    shipping_method: Metoda wysyłki
+    payment: Płatność
+    babysitter: Opiekunka
+    babysitters: Opiekunki
+    description: Opis
+    body: Zawartość
+    title: Tytuł
+    author: Autor
+  activerecord:
+    models:
+      child: "Dziecko"
+      report: Raport
+      group: Grupa
+      activity: Zajęcie
+      hygiene_practice: Zdrowie i Higiena
+      mood: Samopoczucie
+      second_breakfast_eaten_amount: Drugie śniadanie
+      high_tea_eaten_amount: Podwieczorek
+      main_course_eaten_amount: "Obiad: drugie danie"
+      first_dish_eaten_amount: "Obiad: zupa"
+      breakfast_eaten_amount: Śniadanie
+      slumber: Sen
+      walk: Spacer
+      gallery: Galeria
+      landing_page_gallery: Galeria Strony Głównej
+      picture: Zdjęcie
+      floor: Kondygnacja
+      category: Kategoria
+      subcategory: Podkategoria
+      building_material: Materiał budowlany
+      house_plan_category: Kategoria domów
+      payment: Płatność
+      template: Szablon
+      author: Biuro
+      address: Adres
+      order: Zamówienie
+      shipping_method: Metoda wysyłki
+      news: Aktualności
+    attributes:
+      child:
+        name: Imię
+      house_plan:
+        name: "Nazwa"
+        usable_area: "Powierzchnia użytkowa"
+        min_width_of_plot: "Min. szerokość działki"
+        building_height: "Wysokość budynku"
+        roof_surface: "Powierzchnia dachu"
+        roof_slope: "Kąt nachylenia dachu"
+        no_rooms: "Liczba pomieszczeń"
+        cubic_capacity: "Kubatura"
+        building_area: "Powierzchnia zabudowy"
+        garage_type: "Typ garażu"
+        floors_type: "Kondygnacje"
+        roof_type: "Typ dachu"
+        ridge_type: "Typ kalenicy"
+        house_type: "Typ zabudowy"
+        technology_type: "Technologia"
+        style_type: "Styl"
+        shape_type: "Bryła"
+        garage_location_type: "Usytuowanie garażu"
+        ceiling_type: "Strop"
+        energy_efficiency_type: "Energooszczędność"
+        euco: "EUco"
+        description: "Opis"
+        house_n_plot_area: "Powierzchnia domu i działki"
+        floor_area: "Powierzchnia podłóg"
+        ground_floor_area: "Powierzchnia parteru"
+        garage_area: "Powierzchnia garażu"
+        boiler_area: "Powierzchnia kotłowni"
+        final_plot_area: "Powierzchnia działki po adaptacji"
+        technology_desc: "Opis technologii budowy"
+        building_cost: "Kosz budowy"
+        price_gross: "Cena projektu brutto"
+        price_net: "Cena projektu netto"
+        gallery: Galeria
+        elevation_gallery: Elewacje
+        building_plan: "Załącznik rzutu domu"
+        building_plan_img: "Zdjęcie rzutu domu"
+        work_scope: "Załącznik zakresu robót"
+        floors: Kondygnacje
+        house_plan_categories: Kategorie domów
+        author: Biuro
+        identifier: Identyfikator
+      house_plan/elevation_gallery:
+        pictures: Zdjęcia elewacji
+      house_plan/gallery:
+        pictures: Zdjęcia galerii
+      house_plan_category:
+        name: Nazwa
+        house_plans: Projekty domów
+      gallery:
+        name: Nazwa
+        pictures: Zdjęcia
+        model_label: Galeria
+      picture:
+        name: Nazwa
+        description: Opis
+        image: Zdjęcie
+      floor:
+        name: Nazwa
+        description: Opis
+        image: Zdjęcie
+        floor_type: Która
+      category:
+        name: Nazwa
+      subcategory: 
+        name: Nazwa
+        description: Opis
+        category: Kategoria
+      building_material:
+        name: Nazwa
+        description: Opis
+        subcategory: Podkategoria
+      payment:
+        description: Opis
+        user: Użytkownik
+        price_gross: Kwota brutto
+        order: Zamówienie
+      template:
+        texts: Teksty
+        template_type: Identyfikator
+      landing_page_gallery:
+        name: Nazwa
+        pictures: Zdjęcia
+      author:
+        name: Nazwa
+        house_plans: Projekty domów
+      address:
+        first_name: Imię
+      order:
+        address: Adres
+        delivery_address: Adres dostawy
+        company_name: Nazwa organizacji
+        company_tax_number: NIP
+        remarks: Uwagi
+        tenant: Dane zamawiającego
+        subscription: Subskrypcja
+      shipping_method:
+        name: Nazwa
+        price: Koszt (PLN)
+        delivery_time: Termin dostawy (dni)
+        no_direct_payment: Za pobraniem / odb. osobisty
+  orders:
+    confirmation-email:
+      header: Gratulujemy wyboru subskrypcji
+      header_desc: Wkrótce skontaktujemy się, aby potwierdzić zamówienie
+      order_txt: Zamówienie nr
+      body_txt_1: Zamówienie już jest gotowe.
+      body_txt_2: W razie pytań lub reklamacji prosimy o kontakt z działem obsługi:<br>tel. 111111111, UL. GEN. WŁADYSŁAWA ANDERSA 15, 15-111 Poznań.
+  mail_form:
+    models:
+      house_development: "Budowa domu"
+    attributes:
+      house_development:
+        material: Materiał
+        start_date: Rozpoczęcie budowy
+        locality: Miejscowość
+        name: "Nazwa"
+        usable_area: "Powierzchnia użytkowa"
+        min_width_of_plot: "Min. szerokość działki"
+        building_height: "Wysokość budynku"
+        roof_surface: "Powierzchnia dachu"
+        roof_slope: "Kąt nachylenia dachu"
+        no_rooms: "Liczba pomieszczeń"
+        cubic_capacity: "Kubatura"
+        building_area: "Powierzchnia zabudowy"
+        garage_type: "Typ garażu"
+        floors_type: "Kondygnacje"
+        roof_type: "Typ dachu"
+        ridge_type: "Typ kalenicy"
+        house_type: "Typ zabudowy"
+        technology_type: "Technologia"
+        style_type: "Styl"
+        shape_type: "Bryła"
+        garage_location_type: "Usytuowanie garażu"
+        ceiling_type: "Strop"
+        energy_efficiency_type: "Energooszczędność"
+        euco: "EUco"
+        description: "Opis"
+        house_n_plot_area: "Powierzchnia domu i działki"
+        floor_area: "Powierzchnia podłóg"
+        ground_floor_area: "Powierzchnia parteru"
+        garage_area: "Powierzchnia garażu"
+        boiler_area: "Powierzchnia kotłowni"
+        final_plot_area: "Powierzchnia działki po adaptacji"
+        technology_desc: "Opis technologii budowy"
+        building_cost: "Kosz budowy"
+        price_gross: "Cena projektu brutto"
+        price_net: "Cena projektu netto"
+        gallery: Galeria
+        building_plan: "Załącznik rzutu domu"
+        building_plan_img: "Zdjęcie rzutu domu"
+        work_scope: "Załącznik zakresu robót"
+        floors: Kondygnacje
+  controllers:
+    children:
+      update: 
+        flash:
+          notice: Dane dziecka zaktualizowane.
+      create: 
+        flash:
+          notice: Dane dziecka zapisane.
+      destroy: 
+        flash:
+          notice: Dane dziecka usunięte.

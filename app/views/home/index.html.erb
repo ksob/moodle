@@ -1,0 +1,145 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+	<%= form_for(@moodle_detail) do |f| %>
+	  <div class="form-group">
+	    <%= f.label 'Adres serwera', :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.text_field :host, :size=>"90", :class => 'form-control', :placeholder => 'adres serwera z zainstalowanym moodle' %>
+	    </div>
+	    <%=f.error_span(:host) %>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.label :token, :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.text_field :token, :class => 'form-control', :placeholder => 'token z panelu administracyjnego' %>
+	    </div>
+	    <%=f.error_span(:token) %>
+	  </div>
+
+	  <%= f.hidden_field :user_id, value: current_user.id %>
+
+	  <div class="form-group">
+	    <div class="col-lg-offset-2 col-lg-10">
+	      <%= f.submit 'Zapisz', :class => 'btn btn-primary' %>
+	    </div>
+	  </div>
+	<% end %>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Opóźnienia w sprawdzaniu zadań</div>
+  <div class="panel-body">
+    
+	<%= form_tag('/home/generate_notgraded_report') do  %>
+	  
+	<div class='form-group'>
+	  <div class="input-group">
+	  	<%= label_tag 'Tylko te wysłane przed' %>
+	    <%= text_field_tag "start date", '03-12-2018',:name => 'report[end_date]', :id => 'dates_edit_start', 'data-date-format' => 'dd-mm-yyyy', 'data-provide' => 'datepicker',  class: 'form-control col-md-4' %>
+
+	  </div>
+	</div>
+
+	<script>
+	    //a mess that makes the datepicker plugin look a little nicer
+	    //has embedded ruby in it so, can't move it to js file for now
+	    var dateEditStart = $('#dates_edit_start');
+	     var options={
+	    format: 'dd-mm-yyyy',
+	    todayHighlight: true,
+	    autoclose: true, 
+	    daysOfWeekDisabled: "0",
+	    daysOfWeekHighlighted: "0",
+	    language: "pl",
+	    locale: "pl",
+	  };
+
+	    $(document).ready(function() {
+	       
+	        dateEditStart.datepicker(options);
+	    });
+	</script>
+	  
+
+
+	  <div class="actions">
+	    			<%= submit_tag "Generuj", disabled: false, class: 'btn btn-default' %>
+	  </div>
+	<% end %>
+
+	<hr>
+
+	<%= link_to 'Lista wygenerowanych raportów', report_runs_path  %>
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Raport "zaliczonych" studentów</div>
+  <div class="panel-body">
+	<%= form_tag('/home/generate_graded_report') do  %>
+	  
+		<div class='form-group'>
+		  <div class="input-group">
+
+		  </div>
+		</div>
+
+		<div class="actions">
+						<%= submit_tag "Generuj", disabled: false, class: 'btn btn-default' %>
+		</div>
+
+		<hr>
+
+		<%= link_to 'Lista wygenerowanych raportów', report_runs_path(report_type: 'graded')  %>
+
+	<% end %>
+
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Raport ostatniego logowania</div>
+  <div class="panel-body">
+	<%= form_tag('/home/generate_signin_report') do  %>
+	  
+	<div class="row">
+	    <div class="col-lg-4 col-md-4">
+			  	<%= label_tag 'Emaile (każdy w osobnej linii)' %>
+		    	<%= text_area_tag "emails", @moodle_detail.teacher_emails, :placeholder => "xyz@a.pl\nabcde@b.pl\nxyz@a.pl\naaa@aa.pl\nxxx@a.pl", :name => 'report[emails]', :id => 'emails_field', :rows => 17, class: 'form-control' %>
+	    </div>
+	    <div class="col-lg-8 col-md-8">
+	        <div class="row">
+	            <div class="col-lg-12 col-md-12">
+	              <div class="input-group">
+				  	<%= label_tag 'Logowali sie X i więcej dni temu' %>
+				    <%= text_field_tag "last_access", '40', :name => 'report[last_access]', :id => 'last_access',  class: 'form-control' %>
+				  </div>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-lg-12 col-md-12" style="padding-top: 20px;">
+				  	<%= label_tag 'Treść emaila' %>
+			    	<%= text_area_tag "email_text", @moodle_detail.signin_email_text, :placeholder => "Niech Pan/Pani się w końcu zaloguje!\n\nPozdrawiam\nX y", :name => 'report[email_text]', :id => 'emails_field2', :rows => 12,  class: 'form-control' %>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12 col-md-12 actions" style="padding-top: 20px;">
+			<%= submit_tag "Generuj", disabled: false, class: 'btn btn-default' %>
+		</div>
+	</div>
+
+	<% end %>
+
+  </div>
+</div>
+
+

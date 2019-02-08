@@ -1,0 +1,32 @@
+<%= form_with(model: moodle_detail, local: true) do |form| %>
+  <% if moodle_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(moodle_detail.errors.count, "error") %> prohibited this moodle_detail from being saved:</h2>
+
+      <ul>
+      <% moodle_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :host %>
+    <%= form.text_field :host %>
+  </div>
+
+  <div class="field">
+    <%= form.label :token %>
+    <%= form.text_field :token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

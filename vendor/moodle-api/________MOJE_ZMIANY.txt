@@ -1,0 +1,2 @@
+Jest to Gem moodle-api w wersji commita a3f7f7f10993900c03fcde6f7e3a34e73a339be6
+jedyne co dodałem to zmianę biblioteki REST w pliku lib/.../request lib/.../client, no i gemspec dodając tą bibliotekę

@@ -1,0 +1,27 @@
+<h1 style="color: #5e9ca0;">Raport studentów</h1>
+<hr>
+Poniżej znajdziesz raport odnośnie studentów, którzy zaliczyli wszystkie przedmioty.
+<br>
+<br>
+
+<table class="table">
+	<tr>
+		<th>Nauczyciel</th>
+		<th>Nazwa przedmiotu</th>
+		<th>'Zaliczeni' studenci</th>
+	</tr>
+	<% @courses.each_pair do |course_name, course_hsh| %>
+				<tr>
+					<td><%= @teacher_email %></td>
+					<td><%= course_name %></td>
+					<td><%= course_hsh['user_ids'].count %></td>
+				</tr>
+	<% end %>
+</table>
+
+<br />
+<br />
+Wysłano z: <%= @school_name %>
+
+<br />
+<br />

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @moodle_detail.host %>
+</p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @moodle_detail.token %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @moodle_detail.user %>
+</p>
+
+<%= link_to 'Edit', edit_moodle_detail_path(@moodle_detail) %> |
+<%= link_to 'Back', moodle_details_path %>

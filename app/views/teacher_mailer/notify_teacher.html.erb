@@ -1,0 +1,33 @@
+<h1 style="color: #5e9ca0;">Masz nieocenione zadania</h1>
+<hr>
+Jeden lub więcej twoich uczniów ma nieocenione zadania.
+<br>
+Przesłane zadania wiszą na platformie już co najmniej od <%= @end_date %> !
+<br>
+<h4>Lokalizacja zadań:</h4>
+
+<table class="table">
+	<tr>
+		<th>Nazwa przedmiotu</th>
+		<th>Nazwa tematu</th>
+		<th>Nazwa zadania</th>
+	</tr>
+	<% @courses.each_pair do |course_name, course_hsh| %>
+		<% course_hsh.each_pair do |topic_name, topic_hsh| %>
+			<% topic_hsh.each_pair do |assignment_name, assignment_hsh| %>
+				<tr>
+					<td><%= course_name %></td>
+					<td><%= topic_name %></td>
+					<td><%= assignment_name %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	<% end %>
+</table>
+
+<br />
+<br />
+Wysłano z: <%= @school_name %>
+
+<br />
+<br />

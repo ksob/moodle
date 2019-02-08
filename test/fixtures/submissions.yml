@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_submitted: 2018-12-22 08:30:47
+  date_graded: 2018-12-22 08:30:47
+  grade_raw: 1
+  moodle_user: one
+
+two:
+  date_submitted: 2018-12-22 08:30:47
+  date_graded: 2018-12-22 08:30:47
+  grade_raw: 1
+  moodle_user: two

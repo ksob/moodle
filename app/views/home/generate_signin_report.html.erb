@@ -1,0 +1,39 @@
+<h1>Raport ostatniego logowania</h1>
+
+
+<table class="table">
+	<thead>
+	  <tr>
+	    <!-- <th scope="col">Nauczyciel</th> -->
+	    <th scope="col">Email nauczyciela</th>
+	    <th scope="col">Ostatnio zalogował się</th>
+	    <th scope="col">Treść wysyłanego emaila</th>
+	    <th scope="col">Akcje</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<% colour_swap = true %>
+
+		<% @last_access_times.each_pair do |email, val| %>
+			<% colour_swap = !colour_swap %>
+			<tr class=<%= get_colour_class(colour_swap) %>>
+				<!-- <td><%=  %></td> -->
+				<td><%= email %></td>
+				<td><%= Date.strptime(val.to_s,'%s') %></td>
+				<td>Ustawiona na głównej stronie</td>
+				<td>
+					<%= form_tag(notify_teacher_signin_reports_path(teacher_email: email), :method => :post, :remote => :true, :class => 'internal') do %>
+						<%= hidden_field_tag "email_contents", current_user.moodle_detail.signin_email_text %>
+						<%= submit_tag "Wyślij e-mail" %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+		
+	</tbody>
+</table>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn btn-default'  %>
+
+<br><br>

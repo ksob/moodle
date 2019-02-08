@@ -1,0 +1,28 @@
+<h1>Raporty</h1>
+<table class="table">
+	<thead>
+	  <tr>
+	    <th scope="col">Data</th>
+	    <th scope="col">Parametry wywołania</th>
+	    <th scope="col">Akcje</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<% colour_swap = true %>
+		<% @report_runs.each do |created_at, report_run_id, run_params| %>
+			<% colour_swap = !colour_swap %>
+			
+			<tr class=<%= get_colour_class(colour_swap) %>>
+				<td><%= created_at %></td>
+				<td><%= run_params %></td>
+				<td><%= link_to 'Pokaż', reports_path(report_run_id: report_run_id, report_type: @report_type)  %></td>
+			</tr>
+			
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn btn-default'  %>
+
+<br><br>

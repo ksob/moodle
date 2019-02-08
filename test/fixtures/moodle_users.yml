@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile_image_url: MyString
+  full_name: MyString
+  email: MyString
+  first_name: MyString
+  last_name: MyString
+  moodle_id: 1
+
+two:
+  profile_image_url: MyString
+  full_name: MyString
+  email: MyString
+  first_name: MyString
+  last_name: MyString
+  moodle_id: 1

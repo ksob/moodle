@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Moodle" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Moodle</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+                <li class='<%="active" if current_page?edit_user_registration_path %>'>
+                  <%= link_to(current_user.email, edit_user_registration_path) %>
+                </li>
+                <li class='<%="active" if current_page?edit_user_registration_path %>'>
+                  <%= link_to('Edytuj konto', edit_user_registration_path) %>
+                </li>
+                <li class='<%="active" if current_page?destroy_user_session_path %>'>
+                  <%= link_to('Wyloguj się', destroy_user_session_path, {:method=>'delete'}) %>
+                </li>
+            <% else %>
+                <li class='<%="active" if current_page?new_user_session_path %>'>
+                  <%= link_to('Zaloguj się', new_user_session_path) %>
+                </li>
+                <li>
+                  <%= link_to('Zarajestruj się', new_user_registration_path) %>
+                </li>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Company 2018</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

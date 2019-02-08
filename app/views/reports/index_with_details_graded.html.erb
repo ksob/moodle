@@ -1,0 +1,59 @@
+<h1>Raport 'zaliczonych' studentów</h1>
+<p>Raport stopniowo jest uzupełniany o kolejne pozycje w miarę wykonania skryptu generującego raport.<br>
+    Pod linkiem <a href='http://www.raporty.example.com/sidekiq'>postęp generowania</a> możesz śledzić postępy wykonania.
+</p>
+
+<h3>
+<%= link_to "Pobierz CSV", dl_csv_graded_reports_path(format: :csv, report_run_id: @report_run_id, report_type: @report_type) %>
+</h3>
+
+<table class="table">
+	<thead>
+	  <tr>
+	    <th scope="col">Nauczyciel</th>
+	    <th scope="col">Email nauczyciela</th>
+	    <th scope="col">Nazwa kursu</th>
+	    <th scope="col">Zaliczonych studentów (liczba)</th>
+	    <th scope="col">Zaliczonych studentów (emaile) - te dane nie są wysyłane w mailu</th>
+	    <th scope="col">Akcje</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<% colour_swap = true %>
+
+			<% @reports_by_teacher.each_pair do |teacher_email, hsh| %>
+				<% colour_swap = !colour_swap %>
+				<tr class=<%= get_colour_class(colour_swap) %>>
+					<td><%= teacher_email %></td>
+					<td><%=  %></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<%= form_tag(notify_teacher_graded_reports_path(teacher_email: teacher_email), :method => :post, :remote => :true, :class => 'internal') do %>
+							<%= hidden_field_tag "reports_hash", hsh.to_json %>
+							<%= submit_tag "Wyślij e-mail" %>
+						<% end %>
+					</td>
+				</tr>
+				<% hsh["courses"].each_pair do |course_name, course_hsh| %>
+
+							<tr class=<%= get_colour_class(colour_swap) %>>
+								<td><%= hsh["fullname"] %></td>
+								<td><%= teacher_email %></td>
+								<td><%= course_name %></td>
+								<td><%= course_hsh['user_ids'].count %></td>
+								<td><%= MoodleUser.where(moodle_id: course_hsh['user_ids'], report_run_id: @report_run_id).pluck(:email).to_s %></td>
+								<td></td>
+							</tr>
+
+				<% end %>
+			<% end %>
+		
+	</tbody>
+</table>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn btn-default'  %>
+
+<br><br>

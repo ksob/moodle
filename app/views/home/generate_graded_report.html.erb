@@ -1,0 +1,22 @@
+<h1>Wykonanie w trakcie ...</h1>
+<br><br>
+
+<p>
+	Raport się generuje, może to potrwać do trzech godzin.
+</p>
+<p>
+	Gdy proces dobiegnie końca na adres <%= current_user.email %> zostanie wysłany e-mail z informacją o ukończeniu, ale jeśli żaden e-mail nie dojdzie w ciągu trzech godzin, znaczy to, że nastąpił jakiś błąd w skrypcie i w takim wypadku proszę o kontakt.
+</p>
+<p>
+	Kliknij tutaj <%= link_to "Lista raportów",
+              report_runs_path(report_type: 'graded'), :class => 'btn btn-default'  %>, jest tam link do raportu.<br>
+    Raport stopniowo jest uzupełniany o kolejne pozycje w miarę wykonania skryptu generującego raport.<br>
+    Pod linkiem <a href='http://www.raporty.example.com/sidekiq'>postęp generowania</a> możesz śledzić postępy wykonania.
+
+</p>
+<br><br>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn btn-default'  %>
+
+<br><br>
