@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A application that connects to Moodle e-learning platform over REST, allowing to generate reports of the following:
+* Students that submitted an assignment but have not been graded yet. This report is grouped by the teacher, subject and the topic concerned
+* Total number of students that passed all assignments of a particular subject, grouped by both the teacher and the subject 
+* Last login date of a teacher
 
-Things you may want to cover:
+All reports are beging generated in the background using Sidekiq workers.
+The user triggering the report generation is being informed over email when processing completes.
+All the website content is in Polish. 
+You would also need to manually customize the mailers as I've hard coded sender addresses/names. 
+
+What have been used:
 
 * Ruby version
+ruby 2.5.1
 
-* System dependencies
+* Database used
+MySQL
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Other system dependencies
+Redis must be installed on your system
